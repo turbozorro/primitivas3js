@@ -40,7 +40,7 @@ const plane = new THREE.Mesh(myPlane, myMaterial);
 const cylinder = new THREE.Mesh(myCylinder, myMaterial);
 const sphere = new THREE.Mesh(mySphere, myMaterial);
 
-// Añadir los objetos al escenario.
+// Añadiré los objetos al escenario.
 scene.add(cube);
 scene.add(cone);
 scene.add(plane);
@@ -49,6 +49,7 @@ scene.add(sphere);
 
 // Modificaré la rotación del cubo para que se note.
 cube.rotation.x = 0.25;
+
 // Modificaré la posición y la rotación de los objetos para diferenciarlos.
 cone.rotation.x = plane.rotation.x = cylinder.rotation.x = sphere.rotation.x = 0.25;
 
@@ -63,5 +64,22 @@ camera.position.x = 0;
 camera.position.y = 0;
 camera.position.z = 5;
 
-// Finalmente, llamaré a la constante renderer pasándole la escena y cámara creadas.
-renderer.render(scene, camera)
+// Bonus track, let's dance!!
+let dance = () => {
+    
+    // Aquí invocamos la función que nos permitirá mostrar todo como una escena animada.
+    requestAnimationFrame(dance);
+
+    cube.rotation.y += 0.01;
+    cone.rotation.y += 0.01;
+    sphere.rotation.y += 0.01;
+    plane.rotation.y += 0.01;
+    cylinder.rotation.y += 0.01;
+
+    // Finalmente, llamaré a la constante renderer pasándole la escena y cámara creadas.
+    renderer.render(scene, camera)
+
+}
+
+// ¡A bailar!
+dance();
